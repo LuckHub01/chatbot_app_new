@@ -5,7 +5,7 @@ from langchain.text_splitter import CharacterTextSplitter
 import langchain
 import base64
 from langchain_google_genai import  GoogleGenerativeAIEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -29,7 +29,7 @@ def detect_language(text):
     except Exception as e:
         return "unknown"
 
-from googletrans import Translator
+from googletrans_new  import Translator
 
 
 logo = r"C:\Users\user\Documents\Stages\ChatBot\data\images\genai1.png"  # Remplacez par le chemin de votre image
