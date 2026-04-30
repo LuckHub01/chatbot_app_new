@@ -1,7 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters  import CharacterTextSplitter
 import langchain
 import base64
 from langchain_google_genai import  GoogleGenerativeAIEmbeddings
@@ -97,7 +97,10 @@ def get_text_chunks(text):
     return chunks
 
 def get_vectorstore(text_chunks):
-    embeddings= GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    #embeddings= GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings = GoogleGenerativeAIEmbeddings(
+        google_api_key=os.getenv("GOOGLE_API_KEY")
+    )
     vectorstore=FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
